@@ -1,0 +1,25 @@
+img {
+	height:10%;
+	width: 100%;
+}
+
+body {
+	background-color: #eeeeee;
+}
+
+#mainHeading {
+	font-family: 'Shrikhand', cursive;
+	color: #ffffff;
+	font-size: 6vw;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	top: 40%;
+	left: 0;
+}
+
+#imgHeader {
+	position: relative;
+}
