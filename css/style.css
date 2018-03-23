@@ -4,7 +4,7 @@ img {
 }
 
 body {
-	background-color: #eeeeee;
+	background-color: #eceff1;
 }
 
 #mainHeading {
@@ -23,3 +23,7 @@ body {
 #imgHeader {
 	position: relative;
 }
+
+.input-field label {
+     color: #424242;
+ }
