@@ -15,10 +15,6 @@ $("#submit").on("click", function(event) {
 
     event.preventDefault();
 
-    //resets input box back to their default css if the form is submited.
-    $(".inputData").css({"background-color": "#ffffff", "color": "#000000"});
-
-
     var streetnumber = $("#streetnumber").val().trim();
     //console.log(streetnumber);
     var name = $("#nameofstreet").val().trim();
@@ -54,6 +50,9 @@ $("#submit").on("click", function(event) {
 
 // if all the fields are filled out then the initAPIs function will be called.
     if (runAPIs === true) {
+        //resets input box back to their default css if the form is submited.
+        $(".inputData").css({"background-color": "#ffffff", "color": "#000000"});
+        
         initAPIs();
     }
 
