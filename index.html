@@ -14,28 +14,19 @@
       <!-- Google Fonts Stylesheet -->
       <link href="https://fonts.googleapis.com/css?family=Shrikhand|Varela+Round" rel="stylesheet">
 
-
-
-
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body>
-
+        
         <div id="imgHeader">
               <img src="empty-two-croped.jpg" class="responsive-image">
               <h1 id="mainHeading"> par-King </h1>
         </div>
 
         <div class="container">
-          <div class="row">
-            <div class="card col s12 ">
-              <div class="card-content">
-                <div id="firebaseui-auth-container">
-              </div>
-            </div>
-          </div>
+
           <div class="row">
             <div class="card col s12 z-depth-5">
               <div class="card-content">
@@ -46,14 +37,14 @@
 
                       <div class="input-field">
                         <input id="streetnumber" type="text" class="inputData">
-                        <label for="streetnumber" id="inputlabels"> Street Number </label>
+                        <label for="streetnumber" id="inputlabels"> Street Number </label> 
                       </div>
 
                       <div class="input-field">
                         <input id="nameofstreet" type="text" class="inputData">
                         <label for="nameofstreet"> Street Name </label>
                       </div>
-
+                      
                       <div class="input-field">
                         <input id="city" type="text" class="inputData">
                         <label for="city"> City </label>
@@ -124,7 +115,7 @@
                       </div>
 
                     </div>
-                  </form>
+                  </form> 
 
               </div>
 
@@ -140,7 +131,7 @@
                     <th> Address <i class="material-icons">place</i> </th>
                     <th> Availibity <i class="material-icons">thumbs_up_down</i> </th>
                     <th> Cost (Per Hour) <i class="material-icons">payment</i> </th>
-                    <th> EV Charging <i class="material-icons">ev_station</i> </th>
+                    <th> EV Charnging <i class="material-icons">ev_station</i> </th>
                   </tr>
                 </thead>
 
@@ -161,7 +152,7 @@
     <!-- alert models -->
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <h4> JEENKIES </h4>
+        <h4> JINKIES </h4>
         <p> Please fill out the highlighted field(s).
       </div>
       <div class="modal-footer">
@@ -172,29 +163,13 @@
 
     <!-- footer -->
     <div>
-
+      
     </div>
-
-
 
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-      <script>
-        $(document).ready(function() {
-          $('select').material_select();
-        });
-
-      </script>
-      <!-- Firebase -->
-      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-      <script src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
-      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
-      <!-- JS Firebase page -->
-      <script type="text/javascript" src="javascript/firebase.js"></script>
-      <!-- Javascript Client Library -->
-      <script src="https://smartlock.google.com/client"></script>
       <script type="text/javascript" src="javascript/materialize.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script type="text/javascript" src="javascript/parkingAPI.js"></script>
 
     </body>
