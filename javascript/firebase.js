@@ -41,3 +41,12 @@ firebase.auth().onAuthStateChanged(function (user) {
     // Sign out
   }
 })
+
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('firebaseui-auth-container', {
+  'size': 'invisible',
+  'callback': function (response) {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    onSignInSubmit();
+  }
+});
