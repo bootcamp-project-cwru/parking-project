@@ -15,6 +15,8 @@ $("#submit").on("click", function(event) {
 
     event.preventDefault();
 
+    $("tbody").empty();
+
     //resets input box back to their default css if the form is submited.
     $(".inputData").css({"background-color": "#ffffff", "color": "#000000"});
 
@@ -60,7 +62,7 @@ $("#submit").on("click", function(event) {
 
 
 // function that sends requests to our apis.
-    function initAPIs() {
+  function initAPIs() {
 
     var firstparturl = "https://maps.googleapis.com/maps/api/geocode/json?address="
     var apikey = "&key=AIzaSyBjGILdIXQ8XuCI_8-zYM1phGE-34kJP-k"
@@ -70,23 +72,25 @@ $("#submit").on("click", function(event) {
     // var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBjGILdIXQ8XuCI_8-zYM1phGE-34kJP-k"
     
       axios.get(queryURL)
-  .then(function (response) {
-    console.log(response.data.results[0].geometry.location.lat)
-       console.log(response.data.results[0].geometry.location.lng);
-       latitude = response.data.results[0].geometry.location.lat;
+      .then(function (response) {
+        console.log(response.data.results[0].geometry.location.lat)
+        console.log(response.data.results[0].geometry.location.lng);
+        latitude = response.data.results[0].geometry.location.lat;
         longitude = response.data.results[0].geometry.location.lng;
+
         runparkwhiz();
-  })
-    /*$.ajax({
-      url: queryURL,
-      method: 'GET'
-    }).then(function(result) {
-        console.log(result.results["0"].geometry.location.lat)
-        console.log(result.results["0"].geometry.location.lng)
-        latitude = result.results["0"].geometry.location.lat;
-        longitude = result.results["0"].geometry.location.lng;
-        runparkwhiz();
-        });*/
+
+
+
+
+            
+        });
+        }
+
+        $(".inputData").val("")
+
+        });
+
 
         function runparkwhiz () {
         var query2firstpart = "https://api.parkwhiz.com/v4/quotes/?q=coordinates:"
@@ -97,13 +101,57 @@ $("#submit").on("click", function(event) {
         // https://api.parkwhiz.com/v4/quotes/?q=coordinates:41.8857256,-87.6369590&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20
 
         console.log(queryURL2);
+
         axios.get(queryURL2).then(function(result) {
+
         console.log(result);
+
+        for (var i = 0; i < result.data.length; i++) {
+
+            var price = "N/A"
+            var available = "N/A"
+            var charging = "N/A"
+            var garageName = result.data[i]._embedded["pw:location"].name;
+            if (garageName === undefined) {
+                continue
+            }
+            
+            var garageAddress = result.data[i]._embedded["pw:location"].address1;
+            if (garageAddress === undefined) {
+                continue
+            }
+            
+            // distance = result.data[2].distance.straight_line.feet;
+            if (result.data[i].purchase_options[0]){
+                price = result.data[i].purchase_options[0].price.USD;
+                // if (!price) {
+                //     continue
+                // }
+                
+                available = result.data[i].purchase_options[0].space_availability.status;
+                // if (!available) {
+                //     continue
+                // }
+                 charging = result.data[i].purchase_options[0].amenities[8].enabled;
+                // if (!charging) {
+                //     continue
+                // }
+
+              }
+
+            $("#info-table > tbody").append("<tr><td>" + garageName + "</td><td>" + garageAddress + "</td><td>" + available + "</td><td>" + price + "</td><td>" + charging + "</td></tr>");
+            
+  
+            }
+
         });
+
         }
 
-    }
+    
 
-    $(".inputData").val("")
 
-});
+
+
+
+
