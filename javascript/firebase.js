@@ -10,7 +10,7 @@
 firebase.initializeApp(config);
 
 var uiConfig = {
-  signInSuccessUrl: 'https://google.com',
+  signInSuccessUrl: '',
   signInOptions: [
     firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
@@ -41,3 +41,12 @@ firebase.auth().onAuthStateChanged(function (user) {
     // Sign out
   }
 })
+
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('firebaseui-auth-container', {
+  'size': 'invisible',
+  'callback': function (response) {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    onSignInSubmit();
+  }
+});
