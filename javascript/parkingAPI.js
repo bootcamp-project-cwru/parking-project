@@ -170,7 +170,7 @@ function runparkwhiz() {
         })
       }
 
-      $("#info-table > tbody").append("<tr><td>" + garageName + "</td><td>" + garageAddress + "</td><td>" + available + "</td><td>" + price + "</td><td>" + charging + "</td></tr>");
+      // $("#info-table > tbody").append("<tr><td>" + garageName + "</td><td>" + garageAddress + "</td><td>" + available + "</td><td>" + price + "</td><td>" + charging + "</td></tr>");
     }
   });
 }
