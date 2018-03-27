@@ -107,18 +107,12 @@ $("#submit").on("click", function (event) {
         longitude = response.data.results[0].geometry.location.lng;
 
         runparkwhiz();
-
-
-
-
-
       });
   }
 
   $(".inputData").val("")
 
 });
-
 
 function runparkwhiz() {
   var query2firstpart = "https://api.parkwhiz.com/v4/quotes/?q=coordinates:"
@@ -173,19 +167,12 @@ function runparkwhiz() {
           charging: charging,
           dateAdded: firebase.database.ServerValue.TIMESTAMP
 
-})
-
-
-
+        })
       }
 
       $("#info-table > tbody").append("<tr><td>" + garageName + "</td><td>" + garageAddress + "</td><td>" + available + "</td><td>" + price + "</td><td>" + charging + "</td></tr>");
-
-
     }
-
   });
-
 }
 
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
